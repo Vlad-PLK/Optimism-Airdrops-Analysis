@@ -1,0 +1,49 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: GovernanceToken
+    network: optimism
+    source:
+      address: "0xFeDFAF1A10335448b7FA0268F56D2B44DBD357de"
+      abi: GovernanceToken
+      startBlock: 9720407
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - User
+        - Claimed
+      abis:
+        - name: GovernanceToken
+          file: ./abis/GovernanceToken.json
+      eventHandlers:
+        - event: Claimed(uint256,address,uint256)
+          handler: handleClaimed
+      file: ./src/governance-token.ts
+  - kind: ethereum
+    name: MerkleDistributor
+    network: optimism
+    source:
+      address: "0xFb4D5A94b516DF77Fbdbcf3CfeB262baAF7D4dB7"
+      abi: MerkleDistributor
+      startBlock: 116426347
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - User
+        - MerkleDistributorClaimed
+      abis:
+        - name: MerkleDistributor
+          file: ./abis/MerkleDistributor.json
+      eventHandlers:
+        - event: Claimed(uint256,address,uint256)
+          handler: handleClaimed
+      file: ./src/merkle-distributor.ts
+

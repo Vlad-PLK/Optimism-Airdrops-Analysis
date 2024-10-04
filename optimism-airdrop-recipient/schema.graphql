@@ -1,0 +1,25 @@
+type User @entity{
+  id: Bytes!
+  claimedAmount: BigInt!
+}
+
+type Claimed @entity(immutable: true) {
+  id: Bytes!
+  index: BigInt! # uint256
+  account: Bytes! # address
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type MerkleDistributorClaimed @entity(immutable: true) {
+  id: Bytes!
+  index: BigInt! # uint256
+  account: Bytes! # address
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
