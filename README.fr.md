@@ -1,6 +1,6 @@
 ## Optimism Airdrops Analysis - Subgraph 📊⛓️ ##
 
-[🇬🇧EN VERSION🇬🇧](https://github.com/Vlad-PLK/Optimism-Airdrops-Analysis/README.md)
+[🇬🇧EN VERSION🇬🇧](https://github.com/Vlad-PLK/Optimism-Airdrops-Analysis/blob/main/README.md)
 
 ### Objectif du projet
 
