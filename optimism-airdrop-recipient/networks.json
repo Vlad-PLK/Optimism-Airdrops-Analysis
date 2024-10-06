@@ -10,8 +10,7 @@
     },
     "TokenContract": {
       "address": "0x4200000000000000000000000000000000000042",
-      "startBlock": 73218200,
-      "endBlock": 73289585
+      "startBlock": 73218200
     }
   }
 }

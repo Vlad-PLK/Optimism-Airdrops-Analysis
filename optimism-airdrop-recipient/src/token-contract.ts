@@ -19,12 +19,7 @@ export function handleTransfer(event: TransferEvent): void {
   entity.blockTimestamp = event.block.timestamp
   entity.transactionHash = event.transaction.hash
 
-  entity.save()
-
-  const startAirdropTimestamp = 1675981080;
-  const endAirdropTimestamp = 1675985640;
-  if (entity.from.toHex() == "0x2501c477D0A35545a387Aa4A3EEe4292A9a8B3F0" && (entity.blockTimestamp.toI32() >= startAirdropTimestamp
-    && entity.blockTimestamp.toI32() <= endAirdropTimestamp)) {
+  if (entity.from.toHex() == "0x2501c477d0a35545a387aa4a3eee4292a9a8b3f0") {
     let newUser = User.load(event.params.to)
     if (newUser == null) {
       newUser = new User(event.params.to)
@@ -35,4 +30,5 @@ export function handleTransfer(event: TransferEvent): void {
     newUser.airdrop2Amount = newUser.airdrop2Amount.plus(event.params.value)
     newUser.save()
   }
+  entity.save()
 }
