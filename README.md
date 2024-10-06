@@ -1,6 +1,6 @@
 ## Optimism Airdrops Analysis - Subgraph 📊⛓️ ##
 
-[🇫🇷FR VERSION🇫🇷](https://github.com/Vlad-PLK/Vlad-PLK/blob/main/README.fr.md)
+[🇫🇷FR VERSION🇫🇷](https://github.com/Vlad-PLK/Optimism-Airdrops-Analysis/blob/main/README.fr.md)
 
 The goal of this project was to index and aggregate the data of an airdrop on the Optimism blockchain, using The Graph as the indexing technology.
 So the following repository contains a subgraph of Optimism first, second and fourth airdrops.
