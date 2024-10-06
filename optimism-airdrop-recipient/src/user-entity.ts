@@ -47,4 +47,17 @@ export class User extends Entity {
 	set claimedAmount(value: BigInt) {
 	  this.set("claimedAmount", Value.fromBigInt(value));
 	}
+
+	get airdrop2Amount(): BigInt {
+		let value = this.get("airdrop2Amount");
+		if (!value || value.kind == ValueKind.NULL) {
+		  throw new Error("Cannot return null for a required field.");
+		} else {
+		  return value.toBigInt();
+		}
+	  }
+	
+	  set airdrop2Amount(value: BigInt) {
+		this.set("airdrop2Amount", Value.fromBigInt(value));
+	  }
   }

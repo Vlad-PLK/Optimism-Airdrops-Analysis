@@ -1,6 +1,7 @@
 type User @entity{
   id: Bytes!
   claimedAmount: BigInt!
+  airdrop2Amount : BigInt!
 }
 
 type Claimed @entity(immutable: true) {
@@ -23,3 +24,12 @@ type MerkleDistributorClaimed @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
+type Transfer @entity(immutable: true) {
+  id: Bytes!
+  from: Bytes! # address
+  to: Bytes! # address
+  value: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

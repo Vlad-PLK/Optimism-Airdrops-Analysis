@@ -7,6 +7,11 @@
     "MerkleDistributor": {
       "address": "0xFb4D5A94b516DF77Fbdbcf3CfeB262baAF7D4dB7",
       "startBlock": 116426347
+    },
+    "TokenContract": {
+      "address": "0x4200000000000000000000000000000000000042",
+      "startBlock": 73218200,
+      "endBlock": 73289585
     }
   }
 }
