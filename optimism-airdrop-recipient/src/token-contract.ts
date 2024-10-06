@@ -28,6 +28,7 @@ export function handleTransfer(event: TransferEvent): void {
     let newUser = User.load(event.params.to)
     if (newUser == null) {
       newUser = new User(event.params.to)
+      newUser.claimedAmount = BigInt.fromI32(0)
       newUser.airdrop2Amount = BigInt.fromI32(0)
     }
     newUser.claimedAmount = newUser.claimedAmount.plus(event.params.value)

@@ -1,7 +1,7 @@
 type User @entity{
   id: Bytes!
   claimedAmount: BigInt!
-  airdrop2Amount : BigInt!
+  airdrop2Amount : BigInt
 }
 
 type Claimed @entity(immutable: true) {
