@@ -1,19 +1,25 @@
-# Optimism Airdrops Analysis - Subgraph #
+## Optimism Airdrops Analysis - Subgraph 📊⛓️ ##
 
-The following repository contains a subgraph of Optimism first and fourth airdrops.
-It was made with Graph CLI, and tested on Subgraph Studio
+The goal of this project was to index and aggregate the data of an airdrop on the Optimism blockchain, using The Graph as the indexing technology.
+So the following repository contains a subgraph of Optimism first, second and fourth airdrops.
+It was made with the Graph CLI, and tested on Subgraph Studio.
+This work was also made possible thanks to tools such as Etherscan, Optimism Etherscan page and data from Dune Analytics
 
-This Subgraph contains 3 entities : 
-- User
-- Claimed
-- MerkleDistributorClaimed
+This Subgraph contains various entities but the most important one is "User" entity : 
 
-User entity is made of an ID and claimedAmount parameters which are respectively the wallet address and the total claimed amount of OP tokens received during
-first and fourth airdrops (by this address)
+ID, claimedAmount, airdrop2_amount -> those parameters are respectively the receiver wallet address, the total claimed amount of OP tokens received and the amount received from the second airdrop.
+```
+type User @entity {
+  id: Bytes!
+  claimedAmount: BigInt!
+  airdrop2Amount: BigInt!
+}
+```
 
-Claimed and MerkleDistributorClaimed represent the first and the fourth airdrop respectively.
+The implementation of the second airdrop into the subgraph is apart from others because the distribution method was different.
+Indeed, users received the airdrop directly from a contract that doesn't emit events, so I had to index the OP token contract address directly and I've filtered the 'Transfer' events by sending address. That's also why there is the special variable airdrop2Amount inside the user entity.
 
-To deploy the following subgraph to Subgraph Studio first of all :
+If you want to deploy the following subgraph to Subgraph Studio follow to next steps :
 1. If you didn't install it yet use the following command to install Graph CLI :
 ```
 npm install -g @graphprotocol/graph-cli
@@ -40,10 +46,10 @@ graph codegen && graph build
 graph deploy --studio optimism-airdrop-recipient
 ```
 Once fully deployed you can test it in the playground and show all users sorted by claimedAmount for exemple.
-Finally you can verify the result of your query by checking on Dune Analytics for Airdrop 1 and 2 :
+Finally you can verify the result of your query by checking on Dune Analytics for Airdrop 1, 2 and 4 :
 </br>
 https://dune.com/queries/3531974
 </br>
 https://dune.com/salva/op-airdrop-4
 </br>
-Some wallets received from both first and fourth aidrops so the claimedAmount will be the sum of received OP tokens
+Some wallets received first, second and fourth aidrops so the claimedAmount will be the sum of all received OP tokens.
