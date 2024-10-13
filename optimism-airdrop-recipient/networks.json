@@ -2,11 +2,11 @@
   "optimism": {
     "GovernanceToken": {
       "address": "0xFeDFAF1A10335448b7FA0268F56D2B44DBD357de",
-      "startBlock": 9720407
+      "startBlock": 9277162
     },
     "MerkleDistributor": {
       "address": "0xFb4D5A94b516DF77Fbdbcf3CfeB262baAF7D4dB7",
-      "startBlock": 116426347
+      "startBlock": 116261466
     },
     "TokenContract": {
       "address": "0x4200000000000000000000000000000000000042",
